@@ -1,133 +1,447 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Untuk Kamu ❤️</title>
-  <meta name="description" content="Sebuah halaman kecil yang dibuat khusus untuk seseorang yang spesial.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <title>Untuk Kamu, Sayang 💗</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@500;600&display=swap');
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: 'DM Sans', sans-serif;
+      color: #5d4350;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(255, 255, 255, .8), transparent 25%),
+        radial-gradient(circle at 80% 80%, rgba(255, 214, 226, .7), transparent 30%),
+        linear-gradient(135deg, #ffe8ef, #fff5f7);
+      overflow-x: hidden;
+    }
+
+    .hearts {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .heart {
+      position: absolute;
+      bottom: -50px;
+      color: rgba(236, 119, 153, .35);
+      animation: floatUp linear infinite;
+    }
+
+    @keyframes floatUp {
+      from {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+      }
+
+      15% {
+        opacity: 1;
+      }
+
+      to {
+        transform: translateY(-115vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      width: min(920px, 92%);
+      margin: auto;
+      padding: 70px 0;
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .small-title {
+      color: #d87998;
+      font-size: .9rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 8vw, 5.5rem);
+      line-height: 1;
+      color: #633e4d;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      max-width: 600px;
+      margin: auto;
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: #80616d;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, .68);
+      border: 1px solid rgba(255, 255, 255, .9);
+      box-shadow: 0 25px 70px rgba(160, 91, 113, .13);
+      backdrop-filter: blur(14px);
+      border-radius: 30px;
+      padding: 45px;
+      text-align: center;
+    }
+
+    .affirmation-label {
+      color: #d87998;
+      font-size: .85rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    #affirmation {
+      min-height: 125px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      line-height: 1.45;
+      color: #633e4d;
+      transition: opacity .25s ease, transform .25s ease;
+    }
+
+    #affirmation.changing {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+
+    button {
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 700;
+      color: white;
+      background: linear-gradient(135deg, #e889a7, #d9668d);
+      padding: 16px 28px;
+      border-radius: 999px;
+      margin-top: 25px;
+      box-shadow: 0 12px 30px rgba(217, 102, 141, .28);
+      transition: .25s ease;
+    }
+
+    button:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 16px 35px rgba(217, 102, 141, .35);
+    }
+
+    button:active {
+      transform: scale(.97);
+    }
+
+    .message {
+      margin-top: 25px;
+      font-size: .95rem;
+      line-height: 1.7;
+      color: #8b6b77;
+    }
+
+    .reasons {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 25px;
+    }
+
+    .reason {
+      background: rgba(255, 255, 255, .58);
+      border-radius: 22px;
+      padding: 28px 20px;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, .8);
+      transition: .25s ease;
+    }
+
+    .reason:hover {
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, .82);
+    }
+
+    .reason .icon {
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+
+    .reason h3 {
+      font-family: 'Playfair Display', serif;
+      color: #704957;
+      margin-bottom: 8px;
+      font-size: 1.2rem;
+    }
+
+    .reason p {
+      font-size: .88rem;
+      line-height: 1.6;
+      color: #8b6b77;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 45px;
+      color: #a47787;
+      font-size: .9rem;
+    }
+
+    .footer span {
+      color: #df6d93;
+    }
+
+    .burst {
+      position: fixed;
+      pointer-events: none;
+      font-size: 1.5rem;
+      animation: burst .9s ease-out forwards;
+      z-index: 10;
+    }
+
+    @keyframes burst {
+      from {
+        transform: translate(0, 0) scale(.5);
+        opacity: 1;
+      }
+
+      to {
+        transform: translate(var(--x), var(--y)) scale(1.3);
+        opacity: 0;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .container {
+        padding: 45px 0;
+      }
+
+      .card {
+        padding: 30px 20px;
+        border-radius: 24px;
+      }
+
+      .reasons {
+        grid-template-columns: 1fr;
+      }
+
+      #affirmation {
+        min-height: 170px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <div class="hearts" aria-hidden="true"></div>
 
-  <header class="hero">
-    <nav class="nav">
-      <div class="brand">our little story ♡</div>
-      <button class="music-btn" id="musicBtn" aria-label="Putar musik">♪ Musik</button>
-    </nav>
+  <div class="hearts" id="hearts"></div>
 
-    <div class="hero-content">
-      <p class="eyebrow">UNTUK SESEORANG YANG SPESIAL</p>
-      <h1>Hai, <span id="name">Sayang</span>.<br>Ini untuk kamu. ❤️</h1>
-      <p class="hero-text">
-        Aku mungkin nggak selalu pintar mengungkapkan semuanya,
-        jadi kali ini aku biarkan halaman kecil ini yang bercerita.
-      </p>
-      <a class="primary-btn" href="#story">Baca cerita kita ↓</a>
-    </div>
-    <div class="scroll-hint">scroll pelan-pelan</div>
-  </header>
+  <main class="container">
 
-  <main>
-    <section class="section intro" id="story">
-      <p class="eyebrow">SEDIKIT TENTANG KITA</p>
-      <h2>Dari sekian banyak orang,<br>aku bersyukur menemukan kamu.</h2>
-      <p class="muted">
-        Ada pertemuan yang terasa biasa pada awalnya, lalu perlahan menjadi
-        bagian paling berarti dari hari-hari kita.
+    <section class="hero">
+      <div class="small-title">A little reminder for you</div>
+
+      <!-- GANTI NAMA DI SINI -->
+      <h1>Untuk Kamu, Sayang. 💗</h1>
+
+      <p>
+        Kalau hari ini terasa berat, berhenti sebentar.
+        Tarik napas pelan-pelan dan ingat bahwa kamu
+        jauh lebih hebat daripada yang kamu kira.
       </p>
     </section>
 
-    <section class="section timeline">
-      <article class="memory-card">
-        <span class="number">01</span>
-        <div>
-          <p class="date">PERTAMA BERTEMU</p>
-          <h3>Hari ketika semuanya dimulai.</h3>
-          <p>
-            Tulis di sini cerita pertama kali kalian bertemu. Bisa dibuat
-            singkat, lucu, atau romantis.
-          </p>
-        </div>
-      </article>
+    <section class="card">
 
-      <article class="memory-card">
-        <span class="number">02</span>
-        <div>
-          <p class="date">MOMEN FAVORIT</p>
-          <h3>Hal-hal kecil yang selalu aku ingat.</h3>
-          <p>
-            Ceritakan momen sederhana yang paling kamu sayang: jalan bersama,
-            ngobrol sampai malam, atau sekadar tertawa tanpa alasan.
-          </p>
-        </div>
-      </article>
-
-      <article class="memory-card">
-        <span class="number">03</span>
-        <div>
-          <p class="date">HARI INI</p>
-          <h3>Dan aku masih memilih kamu.</h3>
-          <p>
-            Karena hubungan bukan tentang menjadi sempurna, tapi tentang
-            terus memilih untuk saling memahami dan menjaga.
-          </p>
-        </div>
-      </article>
-    </section>
-
-    <section class="section reasons">
-      <div class="section-heading">
-        <p class="eyebrow">KENAPA KAMU?</p>
-        <h2>Alasan-alasan kecil<br>yang membuatku jatuh hati.</h2>
+      <div class="affirmation-label">
+        ✨ Your affirmation
       </div>
 
-      <div class="reason-grid">
-        <div class="reason"><b>01</b><span>Senyummu</span><p>Entah kenapa selalu bisa membuat hariku sedikit lebih baik.</p></div>
-        <div class="reason"><b>02</b><span>Caramu peduli</span><p>Hal-hal kecil yang kamu lakukan sering kali berarti besar.</p></div>
-        <div class="reason"><b>03</b><span>Caramu menjadi dirimu sendiri</span><p>Aku suka kamu bukan karena harus menjadi orang lain.</p></div>
-        <div class="reason"><b>04</b><span>Kita</span><p>Karena bersama kamu, hal sederhana pun terasa spesial.</p></div>
+      <div id="affirmation">
+        Kamu tidak harus sempurna untuk menjadi seseorang
+        yang sangat berarti.
       </div>
+
+      <button onclick="newAffirmation(event)">
+        Beri aku affirmation 💕
+      </button>
+
+      <p class="message">
+        Buka ini kapan pun kamu sedang meragukan dirimu sendiri.
+        Aku ingin kamu tahu bahwa kamu selalu punya alasan untuk
+        percaya pada dirimu sendiri. 🌷
+      </p>
+
     </section>
 
-    <section class="letter-section">
-      <div class="letter">
-        <p class="eyebrow">SURAT KECIL</p>
-        <h2>Untuk kamu, yang selalu punya tempat di hatiku.</h2>
+    <section class="reasons">
+
+      <div class="reason">
+        <div class="icon">🌷</div>
+        <h3>Kamu Berharga</h3>
         <p>
-          Kalau suatu hari kamu merasa tidak cukup baik, semoga kamu ingat
-          bahwa ada seseorang yang melihat begitu banyak hal baik di dalam
-          dirimu.
+          Nilai dirimu tidak pernah ditentukan oleh pencapaian,
+          kesalahan, atau pendapat orang lain.
         </p>
-        <p>
-          Terima kasih sudah hadir, untuk semua tawa, cerita, kesabaran,
-          dan hari-hari yang kita lewati bersama. Aku tidak tahu bagaimana
-          cerita kita akan berjalan jauh ke depan, tapi aku tahu satu hal:
-          aku ingin menikmati setiap langkahnya bersamamu.
-        </p>
-        <p class="signature">— dari aku, untuk kamu. ♡</p>
       </div>
+
+      <div class="reason">
+        <div class="icon">🌙</div>
+        <h3>Kamu Boleh Istirahat</h3>
+        <p>
+          Tidak apa-apa berjalan pelan. Kamu tidak harus
+          selalu kuat setiap saat.
+        </p>
+      </div>
+
+      <div class="reason">
+        <div class="icon">💗</div>
+        <h3>Kamu Dicintai</h3>
+        <p>
+          Ada seseorang di sini yang selalu ingin melihatmu
+          bahagia dan baik-baik saja.
+        </p>
+      </div>
+
     </section>
 
-    <section class="section final">
-      <p class="eyebrow">SATU PERTANYAAN</p>
-      <h2>Maukah kamu tetap<br>menjadi rumahku?</h2>
-      <button class="yes-btn" id="yesBtn">Iya, mau ❤️</button>
-      <p class="answer" id="answer"></p>
-    </section>
+    <footer class="footer">
+      Made with <span>♥</span> especially for you.
+    </footer>
+
   </main>
 
-  <footer>
-    Dibuat dengan ❤️ khusus untuk kamu · <span id="year"></span>
-  </footer>
+  <script>
+    const affirmations = [
+      "Kamu tidak harus sempurna untuk menjadi seseorang yang sangat berarti. 💗",
 
-  <audio id="bgMusic" loop preload="none">
-    <!-- Ganti src dengan file musik milikmu, contoh: music/lagu-kita.mp3 -->
-  </audio>
+      "Aku harap kamu melihat dirimu dari sudut pandangku, karena kamu jauh lebih indah daripada yang kamu sadari.",
 
-  <script src="script.js"></script>
+      "Tidak apa-apa kalau hari ini kamu hanya mampu melakukan sedikit. Sedikit tetap berarti.",
+
+      "Kamu sudah melewati begitu banyak hal. Jangan lupa untuk bangga pada dirimu sendiri.",
+
+      "Aku percaya kamu bisa melewati hari-hari sulit ini. Pelan-pelan saja, ya.",
+
+      "Kamu pantas mendapatkan cinta yang lembut, tulus, dan tidak membuatmu mempertanyakan nilai dirimu.",
+
+      "Jangan terlalu keras kepada dirimu sendiri. Kamu juga pantas mendapatkan pengertian dari dirimu sendiri.",
+
+      "Kalau tidak ada yang mengatakannya hari ini: kamu hebat, kamu berharga, dan kamu cukup. 🌷",
+
+      "Tidak semua hari harus menjadi hari terbaik. Yang penting kamu tetap di sini dan terus mencoba.",
+
+      "Aku suka kamu bukan karena kamu selalu kuat, tetapi karena kamu tetap menjadi dirimu sendiri.",
+
+      "Semoga hari ini memberimu alasan kecil untuk tersenyum.",
+
+      "Kamu tidak sendirian. Bahkan ketika rasanya dunia sedang terlalu ramai.",
+
+      "Aku akan selalu mendukungmu, termasuk ketika kamu sedang belajar mencintai dirimu sendiri.",
+
+      "Kamu boleh bermimpi besar. Kamu juga boleh takut. Dua hal itu bisa ada bersamaan.",
+
+      "Satu hari yang buruk tidak menentukan seluruh hidupmu. Besok selalu punya cerita baru. 🌙"
+    ];
+
+    const affirmation = document.getElementById("affirmation");
+
+    function newAffirmation(event) {
+      affirmation.classList.add("changing");
+
+      createBurst(event);
+
+      setTimeout(() => {
+        const current = affirmation.textContent;
+
+        let next;
+        do {
+          next = affirmations[
+            Math.floor(Math.random() * affirmations.length)
+          ];
+        } while (next === current);
+
+        affirmation.textContent = next;
+        affirmation.classList.remove("changing");
+      }, 250);
+    }
+
+    function createBurst(event) {
+      const emojis = ["💗", "💕", "💖", "✨", "🌷"];
+
+      for (let i = 0; i < 10; i++) {
+        const heart = document.createElement("div");
+
+        heart.className = "burst";
+        heart.textContent =
+          emojis[Math.floor(Math.random() * emojis.length)];
+
+        heart.style.left = event.clientX + "px";
+        heart.style.top = event.clientY + "px";
+
+        heart.style.setProperty(
+          "--x",
+          `${(Math.random() - .5) * 180}px`
+        );
+
+        heart.style.setProperty(
+          "--y",
+          `${(Math.random() - .5) * 180}px`
+        );
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 900);
+      }
+    }
+
+    function createFloatingHearts() {
+      const container = document.getElementById("hearts");
+
+      for (let i = 0; i < 18; i++) {
+        const heart = document.createElement("div");
+
+        heart.className = "heart";
+        heart.textContent = Math.random() > .5 ? "♡" : "♥";
+
+        heart.style.left = Math.random() * 100 + "%";
+        heart.style.fontSize =
+          (12 + Math.random() * 22) + "px";
+
+        heart.style.animationDuration =
+          (8 + Math.random() * 12) + "s";
+
+        heart.style.animationDelay =
+          (-Math.random() * 15) + "s";
+
+        container.appendChild(heart);
+      }
+    }
+
+    createFloatingHearts();
+  </script>
+
 </body>
+
 </html>
