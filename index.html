@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Untuk Kamu ❤️</title>
+  <meta name="description" content="Sebuah halaman kecil yang dibuat khusus untuk seseorang yang spesial.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="hearts" aria-hidden="true"></div>
+
+  <header class="hero">
+    <nav class="nav">
+      <div class="brand">our little story ♡</div>
+      <button class="music-btn" id="musicBtn" aria-label="Putar musik">♪ Musik</button>
+    </nav>
+
+    <div class="hero-content">
+      <p class="eyebrow">UNTUK SESEORANG YANG SPESIAL</p>
+      <h1>Hai, <span id="name">Sayang</span>.<br>Ini untuk kamu. ❤️</h1>
+      <p class="hero-text">
+        Aku mungkin nggak selalu pintar mengungkapkan semuanya,
+        jadi kali ini aku biarkan halaman kecil ini yang bercerita.
+      </p>
+      <a class="primary-btn" href="#story">Baca cerita kita ↓</a>
+    </div>
+    <div class="scroll-hint">scroll pelan-pelan</div>
+  </header>
+
+  <main>
+    <section class="section intro" id="story">
+      <p class="eyebrow">SEDIKIT TENTANG KITA</p>
+      <h2>Dari sekian banyak orang,<br>aku bersyukur menemukan kamu.</h2>
+      <p class="muted">
+        Ada pertemuan yang terasa biasa pada awalnya, lalu perlahan menjadi
+        bagian paling berarti dari hari-hari kita.
+      </p>
+    </section>
+
+    <section class="section timeline">
+      <article class="memory-card">
+        <span class="number">01</span>
+        <div>
+          <p class="date">PERTAMA BERTEMU</p>
+          <h3>Hari ketika semuanya dimulai.</h3>
+          <p>
+            Tulis di sini cerita pertama kali kalian bertemu. Bisa dibuat
+            singkat, lucu, atau romantis.
+          </p>
+        </div>
+      </article>
+
+      <article class="memory-card">
+        <span class="number">02</span>
+        <div>
+          <p class="date">MOMEN FAVORIT</p>
+          <h3>Hal-hal kecil yang selalu aku ingat.</h3>
+          <p>
+            Ceritakan momen sederhana yang paling kamu sayang: jalan bersama,
+            ngobrol sampai malam, atau sekadar tertawa tanpa alasan.
+          </p>
+        </div>
+      </article>
+
+      <article class="memory-card">
+        <span class="number">03</span>
+        <div>
+          <p class="date">HARI INI</p>
+          <h3>Dan aku masih memilih kamu.</h3>
+          <p>
+            Karena hubungan bukan tentang menjadi sempurna, tapi tentang
+            terus memilih untuk saling memahami dan menjaga.
+          </p>
+        </div>
+      </article>
+    </section>
+
+    <section class="section reasons">
+      <div class="section-heading">
+        <p class="eyebrow">KENAPA KAMU?</p>
+        <h2>Alasan-alasan kecil<br>yang membuatku jatuh hati.</h2>
+      </div>
+
+      <div class="reason-grid">
+        <div class="reason"><b>01</b><span>Senyummu</span><p>Entah kenapa selalu bisa membuat hariku sedikit lebih baik.</p></div>
+        <div class="reason"><b>02</b><span>Caramu peduli</span><p>Hal-hal kecil yang kamu lakukan sering kali berarti besar.</p></div>
+        <div class="reason"><b>03</b><span>Caramu menjadi dirimu sendiri</span><p>Aku suka kamu bukan karena harus menjadi orang lain.</p></div>
+        <div class="reason"><b>04</b><span>Kita</span><p>Karena bersama kamu, hal sederhana pun terasa spesial.</p></div>
+      </div>
+    </section>
+
+    <section class="letter-section">
+      <div class="letter">
+        <p class="eyebrow">SURAT KECIL</p>
+        <h2>Untuk kamu, yang selalu punya tempat di hatiku.</h2>
+        <p>
+          Kalau suatu hari kamu merasa tidak cukup baik, semoga kamu ingat
+          bahwa ada seseorang yang melihat begitu banyak hal baik di dalam
+          dirimu.
+        </p>
+        <p>
+          Terima kasih sudah hadir, untuk semua tawa, cerita, kesabaran,
+          dan hari-hari yang kita lewati bersama. Aku tidak tahu bagaimana
+          cerita kita akan berjalan jauh ke depan, tapi aku tahu satu hal:
+          aku ingin menikmati setiap langkahnya bersamamu.
+        </p>
+        <p class="signature">— dari aku, untuk kamu. ♡</p>
+      </div>
+    </section>
+
+    <section class="section final">
+      <p class="eyebrow">SATU PERTANYAAN</p>
+      <h2>Maukah kamu tetap<br>menjadi rumahku?</h2>
+      <button class="yes-btn" id="yesBtn">Iya, mau ❤️</button>
+      <p class="answer" id="answer"></p>
+    </section>
+  </main>
+
+  <footer>
+    Dibuat dengan ❤️ khusus untuk kamu · <span id="year"></span>
+  </footer>
+
+  <audio id="bgMusic" loop preload="none">
+    <!-- Ganti src dengan file musik milikmu, contoh: music/lagu-kita.mp3 -->
+  </audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
